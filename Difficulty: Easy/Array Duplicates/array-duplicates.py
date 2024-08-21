@@ -1,22 +1,25 @@
-
 from typing import List
 
-
 class Solution:
-    def duplicates(self, n : int, arr : List[int]) -> List[int]:
-        d={}
-        result=[]
-        for i in arr:
-            if i in d:
-                d[i]+=1
-            else:
-                d[i]=1
-        for key,value in d.items():
-            if value>1:
-                result.append(key)
-        if result:
-            return result
-        return [-1]
+    def duplicates(self, n: int, arr: List[int]) -> List[int]:
+        count = {}
+        
+        # Count occurrences of each element
+        for num in arr:
+            count[num] = count.get(num, 0) + 1
+        
+        # Filter elements that occur more than once
+        result = [key for key, value in count.items() if value > 1]
+        
+        # Sort the result in ascending order
+        result.sort()
+        
+        # Return the sorted list of duplicates or [-1] if no duplicates are found
+        return result if result else [-1]
+
+
+
+
 #{ 
  # Driver Code Starts
 class IntArray:
