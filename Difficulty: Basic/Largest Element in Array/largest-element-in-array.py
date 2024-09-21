@@ -4,16 +4,8 @@ from typing import List
 
 class Solution:
     def largest(self, arr : List[int]) -> int:
-        maxx=0
-        for i in range(len(arr)):
-            maxx=max(arr[i],maxx)
-        return maxx    
-            
-
-            
-        
-        
-        
+        arr.sort()
+        return arr[-1]
         
 
 
